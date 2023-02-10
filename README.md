@@ -2,7 +2,7 @@
 
 # Clone Projects:
   
-  $ git clone https://github.com/MaheshBBirajdar/learniphi-task.git
+  $ git clone https://github.com/MaheshBBirajdar/project1.git
   
 # Install requirements:-
 
