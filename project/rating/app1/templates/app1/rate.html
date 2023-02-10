@@ -1,0 +1,43 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+
+<div class="container">	
+<div class="form-popup" id="myForm">
+		<form action="" method="POST">
+
+			{% csrf_token %}
+
+			<label for="rating">Rating</label>
+			
+				<div class="rating rating2">
+				  <a href="#5" title="Give 5 stars" data-value="5">★</a>
+				  <a href="#4" title="Give 4 stars" data-value="4">★</a>
+				  <a href="#3" title="Give 3 stars" data-value="3">★</a>
+				  <a href="#2" title="Give 2 stars" data-value="2">★</a>
+				  <a href="#1" title="Give 1 star" data-value="1">★</a>
+				</div>
+
+							<script>
+							  $(".rating a").on('click', function(e){
+							    let value = $(this).data('value');
+							     $.ajax({
+							        url: "",
+							        type: 'POST',
+							        data: {'rating': value},
+							        success: function (d){
+							         // some processing
+							        }
+							     })
+							  });
+							</script>
+
+			<label for="comment">Comments</label>
+			<textarea name="comment" id="comment" cols="20" rows="2" class="form-control"></textarea>
+			
+			<input type="submit" class="btn btn-danger" value="submit">
+			
+		</form>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+
+<style>
+  h2 {text-align:left;}
+</style>
+<div class="row">
+            <div class="col-sm-4"> 
+            <h2 class="alert alert-info">Add Course </h2>
+          <form action="" method="POST">
+
+          	{% csrf_token %}
+          	{{ form.as_p }}
+
+          <input type="submit" value="Add" >
+          </form>
+          </div>
+
+                  <div class="col-sm-7 offset-1"> 
+                    <h2 class="alert alert-info">All Courses Info </h2>
+
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Sr.No</th>
+                          <th>CourseName</th>
+                          <th>Star Ratings</th>
+                          <th>Number of Comments </th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                    {% for each in data %}
+
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{each.Course_name}}</td>
+                          <td>{{each.Course_star_rating}}</td>
+                          <td>{{each.Course_comments}}</td>
+                          <td>
+
+                  <form action="{% url 'rate_review' each.id %}" method='POST'>{% csrf_token %}
+               <input type="submit" class="btn btn-warning" value="Rate Course">
+                </form>
+
+                          </td>
+
+                    {% endfor %}
+
+                        </tr> 
+                      </tbody>
+                    </table>
+                  </div>               
+
+</div>
+
+
+{% endblock %}
