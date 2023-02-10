@@ -21,8 +21,8 @@
     python manage.py runserver
     
     (Note :- Follow the steps for to run the Project)
-     1) cd Project
-     2) cd Rating
+     1) cd project
+     2) cd rating
     
  # Web page url :-
  
